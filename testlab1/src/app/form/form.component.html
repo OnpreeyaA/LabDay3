@@ -1,12 +1,15 @@
-<form
-[formGroup] = "formGroup" (ngSubmit) = "onSummit(formGroup)">
+<form [formGroup] = "formGroup" (ngSubmit) = "onSummit(formGroup)">
  <div>
-   <input type = "text" [formControl] = "firstname" placeholder = 'first name'
-   >
+   <input type = "text" [formControl] = "firstname" placeholder = 'first name'>
  </div>
  <div>
-  <input type = "text" [formControl] = "firstname" placeholder = 'last name'
-  >
+  <input type = "text" [formControl] = "lastname" placeholder = 'last name'>
+</div>
+<div>
+  <input type = "text" [formControl] = "email" placeholder = 'email'>
+</div>
+<div>
+  <input type = "number" [formControl] = "age" placeholder = 'age'>
 </div>
 <button>submit</button>
 </form>

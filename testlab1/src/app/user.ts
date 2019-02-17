@@ -1,9 +1,10 @@
-import { StringifyOptions } from 'querystring';
+//import { StringifyOptions } from 'querystring';
 
 export class User{
     constructor(
         public firstName: string,
-        public lastName: String
+        public lastName: string,
+        public email: string
     ){  
     }
 }

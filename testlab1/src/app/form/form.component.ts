@@ -1,26 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { User } from '../user';
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-form101',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  
   formGroup: FormGroup;
-
   constructor(
-    private formbuilder: FormBuilder
-  ) { }
+    private formBuild: FormBuilder
+  ) 
+  {
+
+   }
 
   ngOnInit() {
-    this.formGroup = this.formbuilder.group({
-      firstname: this.formbuilder.control(''),
-      lastname:['']
-    })
+    this.formGroup = this.formBuild.group({
+      firstName: this.formBuild.control(''),
+      lastName: [''],
+      email:['']
+    } )
   }
-  onSubmit(form : FormGroup){
-    console.log(form);
+  onSubmit(form: FormGroup){
+    const {firstName, lastName, email} = form.value;
+    const user1 = new User(firstName, lastName, email);
+    console.log(user1);
   }
+
 }
