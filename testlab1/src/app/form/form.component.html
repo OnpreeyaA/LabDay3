@@ -1,15 +1,29 @@
 <form [formGroup] = "formGroup" (ngSubmit) = "onSummit(formGroup)">
  <div>
-   <input type = "text" [formControl] = "firstname" placeholder = 'first name'>
+   <input type = "text" formControlName = "firstname" placeholder = 'First Name'>
  </div>
- <div>
-  <input type = "text" [formControl] = "lastname" placeholder = 'last name'>
+ <label style="color:red" *ngIf="formGroup.get('firstname').invalid && 
+      formGroup.get('lastName').touched &&
+      formGroup.get('firstName').errors['required']">Required.
+  </label>
+  
+<div><input type = "text" formControlName= "lastname" placeholder = 'Last Name'>
 </div>
+<label style="color: blueviolet" *ngIf="formGroup.get('lastname').invalid && 
+      formGroup.get('lastName').touched &&
+      formGroup.get('firstName').errors['required']">min is 3.
+  </label>
 <div>
-  <input type = "text" [formControl] = "email" placeholder = 'email'>
+  <input type = "text" formControlName = "email" placeholder = 'E-Mail'>
 </div>
+<label style="color :cadetblue" 
+*ngIf= "formGroup.get('email').invalid &&
+formGroup.get('email').touched &&
+formGroup.get('email').errors['email']">e-mail is invalid.
+</label>
 <div>
-  <input type = "number" [formControl] = "age" placeholder = 'age'>
+  <input type = "number" min = 0 max = 99 formControlName = "age" placeholder = 'Age'>
 </div>
+
 <button>submit</button>
 </form>
